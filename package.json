@@ -1,0 +1,22 @@
+{
+  "name": "virtue",
+  "version": "1.0.0",
+  "description": "Pickcle's test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pickcle/Virtue.git"
+  },
+  "keywords": [
+    "virtue"
+  ],
+  "author": "Pickcle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pickcle/Virtue/issues"
+  },
+  "homepage": "https://github.com/Pickcle/Virtue#readme"
+}
