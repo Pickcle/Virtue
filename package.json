@@ -18,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/Pickcle/Virtue/issues"
   },
-  "homepage": "https://github.com/Pickcle/Virtue#readme"
+  "homepage": "https://github.com/Pickcle/Virtue#readme",
+  "dependencies": {
+    "babel-loader": "^6.2.9",
+    "css-loader": "^0.26.1",
+    "jsx-loader": "^0.13.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0"
+  }
 }
