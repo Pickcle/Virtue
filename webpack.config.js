@@ -1,5 +1,7 @@
+var path = require('path');
 var webpack = require('webpack');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var argv = require('yargs').argv;
 var packPath = '';
 if (argv.e === 'prod') {
@@ -7,14 +9,16 @@ if (argv.e === 'prod') {
 } else {
   packPath = 'static';
 }
+var appPath = path.join(__dirname, packPath);
 
 module.exports = {
   entry: {
-    app: './client/index.js'
+    app: './src/index.js'
   },
   output: {
-    path: __dirname + '/' + packPath,
-    filename: '[name]-[chunkhash].js'
+    path: appPath,
+    filename: '[name].js'
+    // filename: '[name]-[chunkhash].js'
     // filename: path.join(__dirname)
   },
   module: {
@@ -27,8 +31,9 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style', 'css!sass'),
+        exclude: /node_modules/
       }
     ]
   },
@@ -41,7 +46,8 @@ module.exports = {
       verbose: true,
       dry: false,
       exclude: []
-    })
+    }),
+    new ExtractTextPlugin('style.css')
     // new webpack.optimize.UglifyJsPlugin({
     //   compress: {
     //     warnings: false,
