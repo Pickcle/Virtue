@@ -74,7 +74,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'div' },
 	        'aa'
 	      );
 	    }

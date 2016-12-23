@@ -7,7 +7,7 @@ class Root extends Component {
 
   render() {
     return (
-      <div>aa</div>
+      <div className='div'>aa</div>
     );
   }
 }
