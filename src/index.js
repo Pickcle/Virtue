@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
+import './style.scss';
 
 class Root extends Component {
   constructor(props) {
@@ -7,12 +10,17 @@ class Root extends Component {
 
   render() {
     return (
-      <div className='div'>aa</div>
+      <div className='div'>
+        aa
+        <div className='div'>
+          bb
+        </div>
+      </div>
     );
   }
 }
 
-React.render(
+ReactDOM.render(
   <Root/>,
   document.getElementById('app')
 );
