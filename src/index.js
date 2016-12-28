@@ -1,26 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import Root from './js/RootRoute.js';
+import Provider from 'react-redux';
 
-import './style.scss';
-
-class Root extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div className='div'>
-        aa
-        <div className='div'>
-          bb
-        </div>
-      </div>
-    );
-  }
-}
+import './css/style.scss';
 
 ReactDOM.render(
-  <Root/>,
+  (<Provider store={store}>
+    <App />
+  </Provider>),
   document.getElementById('app')
 );
