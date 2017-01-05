@@ -1,13 +1,13 @@
+/**
+ * 项目入口
+ * Author: xiaohj
+ * Date: 2016.12.28
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './js/RootRoute.js';
-import Provider from 'react-redux';
-
-import './css/style.scss';
+import RootRouter from './RootRouter.js';
 
 ReactDOM.render(
-  (<Provider store={store}>
-    <App />
-  </Provider>),
+  <RootRouter />,
   document.getElementById('app')
 );

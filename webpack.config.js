@@ -20,6 +20,8 @@ if (argv.e === 'prod') {
 }
 var appPath = path.join(__dirname, packPath);
 
+var nodeModulePath = path.join(__dirname, 'node_modules');
+
 module.exports = {
   entry: {
     app: './src/index.js'
@@ -36,7 +38,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react', 'stage-0']
         }
       },
       {
@@ -47,6 +49,17 @@ module.exports = {
     ]
   },
   resolve: {
+    alias: {
+			// react: path.join(nodeModulePath, 'react/react.js'),
+			'react-router': path.join(nodeModulePath, 'react-router/lib'),
+			'react-dom': path.join(nodeModulePath, 'react-dom'),
+			'react-thunk': path.join(nodeModulePath, 'react-redux/dist/redux-thunk.js'),
+			'es6-promise': path.join(nodeModulePath, 'es6-promise/dist/es6-promise'),
+			redux: path.join(nodeModulePath, 'redux/dist/redux.js'),
+			src: path.join(__dirname, './src'),
+			common: path.join(__dirname, './src/common'),
+			pages: path.join(__dirname, './src/pages')
+		},
     extensions: ['', '.js', '.jsx', '.css', '.json']
   },
   plugins: [
