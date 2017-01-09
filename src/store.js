@@ -5,9 +5,9 @@
  */
 import { applyMiddleware, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { createReducer } from './RootReducer.js';
+import createReducer from './RootReducer.js';
 
-export default function configureStore(initialState) {
+export function configureStore(initialState = {}) {
   const store = createStore(createReducer(), initialState, applyMiddleware(thunkMiddleware));
   store.asyncReducers = {};
   return store;
@@ -17,3 +17,7 @@ export function injectAsyncReducer(store, name, asyncReducer) {
   store.asyncReducers[name] = asyncReducer;
   store.replaceReducer(createReducer(store.asyncReducers));
 }
+
+const store = configureStore();
+
+export default store;

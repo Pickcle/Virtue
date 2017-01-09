@@ -3,6 +3,7 @@
  * Author: xiaohj
  * Date: 2017.1.4
  */
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Router, hashHistory } from 'react-router';
 import store, { injectAsyncReducer } from './store.js';
@@ -19,16 +20,20 @@ const routes = {
     }
   },
   childRoutes: [
-    require('./pages/Apple'),
-    require('./pages/Banana'),
-    require('./pages/Orange')
+    // require('./pages/Apple'),
+    // require('./pages/Banana'),
+    // require('./pages/Orange')
   ]
 }
 
-module.exports = {
+export default class RootRouter extends Component {
   render() {
-    <Provider store={store}>
-      <Router history={hashHistory} routes={routes}/>
-    </Provider>
+    console.log('---xhj---store:');
+    console.log(store);
+    return (
+      <Provider store={store}>
+        <Router history={hashHistory} routes={routes}/>
+      </Provider>
+    )
   }
 }
