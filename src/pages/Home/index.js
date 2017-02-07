@@ -9,8 +9,8 @@ module.exports = {
   getComponent(nextState, cb) {
     require.ensure([], require => {
       const { home } = require('./reducer.js');
-      injectAsyncReducer(store, 'yao_home', home)
-      cb(null, require('./main.js'))
+      injectAsyncReducer(store, 'home', home);
+      cb(null, require('./main.js'));
     }, 'home')
   }
 }

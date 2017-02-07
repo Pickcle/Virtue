@@ -1,3 +1,3 @@
-export default function home(initialState = {}) {
-  return initialState;
+export function home(initialState = {}) {
+  return {};
 }

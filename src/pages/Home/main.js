@@ -3,7 +3,9 @@
  * Author: xiaohj
  * Date: 2017.1.5
  */
-import { Component } from 'react';
+import React, { Component } from 'react';
+
+import './main.scss';
 
 export default class Home extends Component {
   constructor(props) {
@@ -12,9 +14,9 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className='home-title'>
         aa
-        <div>
+        <div className='home-content'>
           bb
         </div>
       </div>
