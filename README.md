@@ -1,2 +1,2 @@
 # Virtue
-Pickcle's test project
+a simple project with react-redux
