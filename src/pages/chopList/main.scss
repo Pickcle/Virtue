@@ -1,0 +1,23 @@
+.chop-list {
+  width: 100%;
+
+  .count-down-bar {
+		background-color: #83766e;
+		font-size: 15px;
+		color: #fff;
+		line-height: 45px;
+		-webkit-font-smoothing: antialiased;
+		padding-left: 15px;
+
+    .count-down {
+      display: inline-block;
+      height: 30px;
+      // vertical-align: middle;
+      margin-left: 5px;
+    }
+  }
+
+  .item-container {
+    overflow-y: auto;
+  }
+}
