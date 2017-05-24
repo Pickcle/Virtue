@@ -7,7 +7,7 @@ var app = express()
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
-  publicPath: '/static',
+  publicPath: webpackConfig.output.publicPath,
   quiet: true
 })
 

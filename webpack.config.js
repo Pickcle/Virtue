@@ -12,12 +12,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var WebpackMd5Hash = require('webpack-md5-hash');
 //可在webpack打包命令中自定义变量
 // var argv = require('yargs').argv;
-var packPath = '';
-if (process.env.NODE_ENV === 'production') {
-  packPath = 'dist';
-} else {
-  packPath = 'static';
-}
+var packPath = 'static';
+// if (process.env.NODE_ENV === 'production') {
+//   packPath = 'dist';
+// } else {
+//   packPath = 'static';
+// }
 var appPath = path.join(__dirname, packPath);
 
 // var nodeModulePath = path.join(__dirname, 'node_modules');
@@ -35,12 +35,13 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loader: 'babel',
         query: {
-          presets: ['es2015', 'react', 'stage-0'],
-          plugins: ['add-module-exports']
-        }
+          presets: ['es2015', 'react', 'stage-0', 'stage-1'],
+          plugins: ['add-module-exports', 'transform-runtime']
+        },
+        exclude: /node_modules/
       },
       {
         test: /\.scss$/,
