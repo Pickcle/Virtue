@@ -46,17 +46,24 @@ module.exports = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('style', 'css!sass'),
         exclude: /node_modules/
-      }
+      },
+      {
+  			test: /\.(png|jpg|gif)$/,
+  			exclude: /node_modules/,
+  			loader: 'url',
+  			query: {
+  				limit: 8192,
+  				name: 'images/[name]-[hash:8].[ext]'
+  			}
+  		}
     ]
   },
   resolve: {
+    modules: [
+      path.join(__dirname, './src')
+    ],
     alias: {
 			// react: path.join(nodeModulePath, 'react/react.js'),
-			'react-router': path.join(nodeModulePath, 'react-router/lib'),
-			'react-dom': path.join(nodeModulePath, 'react-dom'),
-			'react-thunk': path.join(nodeModulePath, 'react-redux/dist/redux-thunk.js'),
-			'es6-promise': path.join(nodeModulePath, 'es6-promise/dist/es6-promise'),
-			redux: path.join(nodeModulePath, 'redux/dist/redux.js'),
 			src: path.join(__dirname, './src'),
 			common: path.join(__dirname, './src/common'),
 			pages: path.join(__dirname, './src/pages')
