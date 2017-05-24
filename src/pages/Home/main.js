@@ -13,7 +13,7 @@ export default class Home extends Component {
   }
 
   onButtonClick = () => {
-    location.href = '/categoryList`'
+    window.location.href = 'localhost:8081/#/yao-categorylist/b2c/10000'
   }
 
   render() {

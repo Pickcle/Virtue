@@ -63,6 +63,21 @@ export const getFirstLevelFrontCategory = (rootId, id) => {
   }
 }
 
+export const fakeGetFrontCategory = (id) => {
+  return {
+    type: 'fakeGetFrontCategory',
+    id
+  }
+}
+
+export const fakeGetFirstLevelFrontCategory = (rootId, id) => {
+  return {
+    type: 'fakeGetFirstLevelFrontCategory',
+    rootId,
+    id
+  }
+}
+
 /**
  * 一级类目选中变更
  */

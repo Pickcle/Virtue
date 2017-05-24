@@ -61,21 +61,8 @@ class CategoryList extends Component {
   }
 
   componentDidMount() {
-    //加载打点
-    Common.makeLog({
-      29: 'onload',
-      32: 'H5web_jkshop_channel_category',
-      505: JSON.stringify({
-        channel: Util.getChannel(),
-        time: Date.now(),
-        uid: Common.getUserId(),
-        tree_id: this.rootId
-      })
-    });
 
     this.needDefaultScroll = false;
-
-    Util.setTitle(this.pageTitle);
 
     const { curIndex } = this.props.yao_categoryList;
 
@@ -87,7 +74,7 @@ class CategoryList extends Component {
 
         //请求第一个一级类目的数据
         // this.props.dispatch(Actions.getFrontCategory(this.rootId));
-        this.props.Actions.getFrontCategory(this.rootId);
+        this.props.Actions.fakeGetFrontCategory(this.rootId);
       } else {
         // this.props.dispatch(Actions.jumpToLevel1(this.idLevel1, this.rootId))
         this.props.Actions.jumpToLevel1(this.idLevel1, this.rootId);
@@ -99,37 +86,13 @@ class CategoryList extends Component {
   }
 
   onReturnClick = (e) => {
-    //返回点击打点
-    Common.makeLog({
-      29: 'return_click',
-      32: 'H5web_jkshop_channel_category',
-      505: JSON.stringify({
-        channel: Util.getChannel(),
-        time: Date.now(),
-        uid: Common.getUserId(),
-        tree_id: this.rootId
-      })
-    });
-
     //清除state
     // this.props.dispatch(Actions.clearState());
   }
 
   onSearchClick = (e) => {
-    //搜索框点击打点
-    Common.makeLog({
-      29: 'search_click',
-      32: 'H5web_jkshop_channel_category',
-      505: JSON.stringify({
-        channel: Util.getChannel(),
-        time: Date.now(),
-        uid: Common.getUserId(),
-        tree_id: this.rootId
-      })
-    });
-
-    const url = `/yao-search/${this.bizType}/1`;
-    Util.openNewPage(url);
+    // const url = `/yao-search/${this.bizType}/1`;
+    // Util.openNewPage(url);
   }
 
   //点击一级类目回调
@@ -148,19 +111,6 @@ class CategoryList extends Component {
       this.props.Actions.getFirstLevelFrontCategory(this.rootId, selectedItemId);
     }
 
-    //一级类目点击打点
-    Common.makeLog({
-      29: 'cate1_click',
-      32: 'H5web_jkshop_channel_category',
-      505: JSON.stringify({
-        channel: Util.getChannel(),
-        time: Date.now(),
-        uid: Common.getUserId(),
-        tree_id: this.rootId,
-        cate_id: selectedItemId ,
-        cate_list_id: index + 1
-      })
-    });
   }
 
   /**

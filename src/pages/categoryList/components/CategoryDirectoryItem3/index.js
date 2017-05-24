@@ -18,26 +18,12 @@ export default class CategoryDirectoryItem3 extends Component {
   onSelfClick(e) {
     const { dataLevel3, index, bizType } = this.props;
 
-    //三级类目点击打点
-    Common.makeLog({
-      29: 'cate3_click',
-      32: 'H5web_jkshop_channel_category',
-      505: JSON.stringify({
-        channel: Util.getChannel(),
-        time: Date.now(),
-        uid: Common.getUserId(),
-        tree_id: this.rootId,
-        cate_id: dataLevel3.id,
-        cate_list_id: index + 1
-      })
-    });
-
     if (dataLevel3.actType == 1) {
       //url跳转
-      Util.openNewPage(dataLevel3.url);
+      // Util.openNewPage(dataLevel3.url);
     } else if (dataLevel3.actType == 2) {
       //跳搜索结果页
-      Util.openNewPage(`/yao-search/${bizType}/1/@/@/${dataLevel3.id}`);
+      // Util.openNewPage(`/yao-search/${bizType}/1/@/@/${dataLevel3.id}`);
     }
   }
 
