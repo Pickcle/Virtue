@@ -11,16 +11,16 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 //使css的改动不会影响js的chunkhash
 var WebpackMd5Hash = require('webpack-md5-hash');
 //可在webpack打包命令中自定义变量
-var argv = require('yargs').argv;
+// var argv = require('yargs').argv;
 var packPath = '';
-if (argv.e === 'prod') {
+if (process.env.NODE_ENV === 'production') {
   packPath = 'dist';
 } else {
   packPath = 'static';
 }
 var appPath = path.join(__dirname, packPath);
 
-var nodeModulePath = path.join(__dirname, 'node_modules');
+// var nodeModulePath = path.join(__dirname, 'node_modules');
 
 module.exports = {
   entry: {
@@ -78,6 +78,7 @@ module.exports = {
       exclude: []
     }),
     new ExtractTextPlugin('style-[contenthash].css'),
+    // new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
