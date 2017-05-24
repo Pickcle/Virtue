@@ -1,0 +1,29 @@
+.category-directory-item3 {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 33.3%;
+  padding: 5px 2px 0 2px;
+  vertical-align: middle;
+
+  .category-directory-item3-content {
+    text-align: center;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+
+    .category-directory-item3-image {
+      width: 100%;
+      height: 100%;
+      background: url(~common/images/image-placeholder.png) no-repeat;
+    }
+
+    .category-directory-item3-text {
+      justify-content: center;
+      flex-direction: column;
+      height: 40px;
+      font-size: 13px;
+      color: #333;
+    }
+  }
+
+}

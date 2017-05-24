@@ -14,16 +14,16 @@ const routes = {
   component: Root,
   getIndexRoute(nextState, cb) {
 		require.ensure([], require => {
-			cb(null, require('./pages/Home'))
+			cb(null, require('./pages/categoryList'))
 		}, 'indexRoute')
 	},
-  getChildRoutes(nextState, cb) {
-		require.ensure([], require => {
-			cb(null, [
-        require('./pages/Home')
-      ])
-    }, 'dynamicRoutes')
-  }
+  // getChildRoutes(nextState, cb) {
+	// 	require.ensure([], require => {
+	// 		cb(null, [
+  //       require('./pages/categoryList')
+  //     ])
+  //   }, 'dynamicRoutes')
+  // }
 
 }
 

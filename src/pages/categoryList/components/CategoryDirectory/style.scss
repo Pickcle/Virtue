@@ -1,0 +1,18 @@
+.category-directory {
+  position: relative;
+  float: left;
+  width: 90px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #f3f3f3;
+
+  .category-directory-select {
+    position: absolute;
+    width: 0;
+    height: 55px;
+    border-left: 2px solid #ff4500;
+    border-right: 2px solid #ff4500;
+    transition: top 0.2s ease-out;
+
+  }
+}

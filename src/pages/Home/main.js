@@ -12,14 +12,14 @@ export default class Home extends Component {
     super(props);
   }
 
-  onChopClick = () => {
-    location.href = 'http://www.pickcle.com/virtue/index.html#/chop'
+  onButtonClick = () => {
+    location.href = '/categoryList`'
   }
 
   render() {
     return (
       <div className='home-title'>
-        <button onClick={this.onChopClick}>chopList</button>
+        <button onClick={this.onButtonClick}>category-list</button>
       </div>
     )
   }
