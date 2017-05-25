@@ -64,5 +64,38 @@ export default {
 			url = imgUrl;
 		}
 		return url;
-	}
+	},
+
+  /**
+   * 判断是否是数组类型
+   * @param {object} arr
+   * @return {boolean}
+   */
+  isArray: function(arr) {
+    return Object.prototype.toString.call(arr) == '[object Array]' && arr.constructor == Array;
+  },
+
+  /**
+   * 浅比较两个数组的值是否完全相等（包括顺序），键值必须是数字
+   * @param {array} arr1 数组1
+   * @param {array} arr2 数组2
+   * @return {boolean}
+   */
+  isArrayEqual: function(arr1, arr2) {
+    if (!this.isArray(arr1) || !this.isArray(arr2)) {
+      return false;
+    }
+    if (arr1 === arr2) {
+      return true;
+    }
+    if (arr1.length != arr2.length) {
+      return false;
+    }
+    for (let i = 0; i < arr1.length; ++i) {
+      if (arr1[i] !== arr2[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
 }
