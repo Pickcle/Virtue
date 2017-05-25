@@ -64,6 +64,7 @@ export const getFirstLevelFrontCategory = (rootId, id) => {
 }
 
 export const fakeGetFrontCategory = (id) => {
+  console.count('xhjLog: action fakeGetFrontCategory')
   return {
     type: 'fakeGetFrontCategory',
     id

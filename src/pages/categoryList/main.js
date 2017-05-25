@@ -50,23 +50,26 @@ class CategoryList extends Component {
   componentWillMount() {
     const { curIndex } = this.props.yao_categoryList;
 
-    this.needDefaultScroll = !RouteHelper.isGoto;
+    // this.needDefaultScroll = !RouteHelper.isGoto;
 
     //进入了新id的分类列表页
-    if (!this.needDefaultScroll) {
+    // if (!this.needDefaultScroll) {
       // this.props.dispatch(Actions.clearState());
       this.props.Actions.clearState();
-    }
+    // }
 
   }
 
   componentDidMount() {
 
+    console.log('xhjLog: store', store)
+    console.log('xhjLog: CategoryList', this.props.yao_categoryList)
+
     this.needDefaultScroll = false;
 
     const { curIndex } = this.props.yao_categoryList;
 
-    if (RouteHelper.isGoto) {
+    // if (RouteHelper.isGoto) {
       if (!this.idLevel1) {
         //如果是进入页面，默认选中第一个一级类目
         // this.props.dispatch(Actions.categoryChangeSelectIndex(0));
@@ -74,15 +77,20 @@ class CategoryList extends Component {
 
         //请求第一个一级类目的数据
         // this.props.dispatch(Actions.getFrontCategory(this.rootId));
+        console.count('xhjLog: dispatch fakeGetFrontCategory')
         this.props.Actions.fakeGetFrontCategory(this.rootId);
       } else {
         // this.props.dispatch(Actions.jumpToLevel1(this.idLevel1, this.rootId))
         this.props.Actions.jumpToLevel1(this.idLevel1, this.rootId);
       }
-    } else {
-      //如果是回退到这个页面，保留旧数据
-    }
+    // } else {
+    //   //如果是回退到这个页面，保留旧数据
+    // }
 
+  }
+
+  componentWillReceiveProps(nextProps, nextState) {
+    console.log('xhjLog: nextProps', nextProps)
   }
 
   onReturnClick = (e) => {
@@ -108,7 +116,8 @@ class CategoryList extends Component {
     if (selectedDatasLevel2.length == 0) {
       //如果是第一次点击，没有数据，则请求数据
       // this.props.dispatch(Actions.getFirstLevelFrontCategory(this.rootId, selectedItemId));
-      this.props.Actions.getFirstLevelFrontCategory(this.rootId, selectedItemId);
+      // this.props.Actions.getFirstLevelFrontCategory(this.rootId, selectedItemId);
+      this.props.Actions.fakeGetFirstLevelFrontCategory(this.rootId, selectedItemId);
     }
 
   }
@@ -126,24 +135,18 @@ class CategoryList extends Component {
   render() {
     // const topbarHeight = Common.getTopbarHeight();
     //51是搜索框的高度
-    const contentHeight = document.documentElement.clientHeight - 51 - topbarHeight;
+    const contentHeight = document.documentElement.clientHeight - 51;
     //90是左边一级类目的宽度
-    const contentWidth = document.documentElement.clientWidth - 90;
+    const contentWidth = document.documentElement.clientWidth - 90 - 16;
 
     const { categoryDatasLevel1, categoryDatasLevel2, curIndex } = this.props.yao_categoryList;
-    let searchText;
-    if (this.bizType === 'o2o') {
-      searchText = this.props.yao_document['yao-o2o-search-default'] || '输入文字';
-    } else {
-      searchText = this.props.yao_document['yao-index-search-default'] || '输入文字';
-    }
+    let searchText = '输入文字';
     const datasLevel1 = categoryDatasLevel1[this.rootId] || [];
     const selectedItemId = this.getSelectedItemIdByIndex(curIndex);
     const selectedDatasLevel2 = categoryDatasLevel2[selectedItemId] || [];
 
     return (
       <div className='category-list'>
-        // <TopBar title={this.pageTitle} returnCallback={this.onReturnClick}/>
         <SearchBar text={searchText} onBtnClick={this.onSearchClick}/>
         <div className='category-list-container'>
           <CategoryDirectory height={contentHeight} onDirectoryItemClick={this.onDirectoryItemClick} curIndex={curIndex} datasLevel1={datasLevel1} needDefaultScroll={this.needDefaultScroll}/>
@@ -156,8 +159,7 @@ class CategoryList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    yao_categoryList: state.yao_categoryList,
-    yao_document: state.yao_document
+    yao_categoryList: state.yao_categoryList
   };
 }
 

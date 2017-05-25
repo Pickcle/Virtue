@@ -13,11 +13,12 @@
  * Author: xiaohj
  * Date: 2016.2.8
  */
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 // import ScrollManager from 'common/js/components/ScrollManager';
 import './style.scss';
 
-export default class LazyLoadImage extends Component {
+export default class LazyLoadImage extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -44,7 +45,7 @@ export default class LazyLoadImage extends Component {
   }
 
   componentDidMount() {
-    if (this.props.holderClass && CommonUtils.isString(this.props.holderClass)) {
+    if (this.props.holderClass) {
       const holder = document.getElementsByClassName(this.props.holderClass)[0];
       if (holder) {
         this.scrollHolder = holder;
@@ -56,7 +57,7 @@ export default class LazyLoadImage extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.props['src'] !== nextProps['src'];
+    // return this.props['src'] !== nextProps['src'];
   }
 
   componentWillUpdate(nextProps, nextState) {

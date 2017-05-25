@@ -3,7 +3,8 @@
  * Author: xiaohj
  * Date: 2017.2.15
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './style.scss';
 
