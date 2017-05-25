@@ -3,39 +3,29 @@
  * Author: xiaohj
  * Date: 2015.2.17
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import LazyLoadImage from 'common/js/components/LazyLoadImage';
+import Util from 'src/common/js/Util.js';
+
 import './style.scss';
 
 export default class CategoryDirectoryItem3 extends Component {
-  constructor(props) {
-    super(props);
 
-    this.onSelfClick = this.onSelfClick.bind(this);
-  }
-
-  onSelfClick(e) {
-    const { dataLevel3, index, bizType } = this.props;
-
-    if (dataLevel3.actType == 1) {
-      //url跳转
-      // Util.openNewPage(dataLevel3.url);
-    } else if (dataLevel3.actType == 2) {
-      //跳搜索结果页
-      // Util.openNewPage(`/yao-search/${bizType}/1/@/@/${dataLevel3.id}`);
-    }
-  }
+  // shouldComponentUpdate (nextProps, nextState) {
+    // return nextProps.dataLevel3 !== this.props.dataLevel3;
+  // }
 
   render() {
     const { itemWidth, dataLevel3 } = this.props;
     const heightPx = itemWidth + 45 + 'px';
     const itemWidthPx = itemWidth + 'px';
     return (
-      <div className='category-directory-item3' style={{height: heightPx}} onClick={this.onSelfClick}>
+      <div className='category-directory-item3' style={{height: heightPx}}>
         <div className='category-directory-item3-content'>
           <div style={{width: itemWidthPx, height: itemWidthPx}}>
-            <LazyLoadImage src={Util.getTfsImg('common/images/image-placeholder.png', dataLevel3.img, itemWidth * 2)} className='category-directory-item3-image' holderClass='category-content'/>
+            <img src={Util.getTfsImg(null, dataLevel3.img, itemWidth * 2)} />
           </div>
           <div className='category-directory-item3-text flex'>{dataLevel3.name}</div>
         </div>

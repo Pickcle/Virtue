@@ -3,9 +3,13 @@
  * Author: xiaohj
  * Date: 2017.2.17
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import CategoryDirectoryItem2 from '../CategoryDirectoryItem2';
+
+import Util from 'src/common/js/Util.js';
+
 import './style.scss';
 
 export default class CategoryContent extends Component {
@@ -14,7 +18,7 @@ export default class CategoryContent extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return !(CommonUtils.isArrayEqual(nextProps.selectedDatasLevel2, this.props.selectedDatasLevel2));
+    return !(Util.isArrayEqual(nextProps.selectedDatasLevel2, this.props.selectedDatasLevel2));
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -23,7 +27,7 @@ export default class CategoryContent extends Component {
 
   render() {
     const { height, width, selectedDatasLevel2, bizType } = this.props;
-    const itemWidth = Math.floor((width - 28) / 3);
+    const itemWidth = Math.floor((width - 58) / 3);
     const heightPx = height + 'px';
     const widthPx = width + 'px';
     const domsLevel2 = [];

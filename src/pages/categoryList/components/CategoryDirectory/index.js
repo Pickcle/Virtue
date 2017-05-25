@@ -3,9 +3,12 @@
  * Author: xiaohj
  * Date: 2017.2.17
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import CategoryDirectoryItem from '../CategoryDirectoryItem';
+import Util from 'src/common/js/Util.js';
+
 import './style.scss';
 
 export default class CategoryDirectory extends Component {
@@ -38,7 +41,7 @@ export default class CategoryDirectory extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return !(CommonUtils.isArrayEqual(nextProps.datasLevel1, this.props.datasLevel1)
+    return !(Util.isArrayEqual(nextProps.datasLevel1, this.props.datasLevel1)
         && nextProps.curIndex == this.props.curIndex);
   }
 

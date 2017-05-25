@@ -3,7 +3,8 @@
  * Author: xiaohj
  * Date: 2015.2.17
  */
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import CategoryDirectoryItem3 from '../CategoryDirectoryItem3';
 import './style.scss';
