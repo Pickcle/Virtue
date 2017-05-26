@@ -13,10 +13,6 @@ import './style.scss';
 
 export default class CategoryDirectoryItem3 extends Component {
 
-  // shouldComponentUpdate (nextProps, nextState) {
-    // return nextProps.dataLevel3 !== this.props.dataLevel3;
-  // }
-
   render() {
     const { itemWidth, dataLevel3 } = this.props;
     const heightPx = itemWidth + 45 + 'px';

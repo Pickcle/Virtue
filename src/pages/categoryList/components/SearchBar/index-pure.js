@@ -3,19 +3,19 @@
  * Author: xiaohj
  * Date: 2017.2.15
  */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
 
-export default class SearchBar extends Component {
+export default class SearchBar extends PureComponent {
   constructor(props) {
     super(props);
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-    return nextProps.text !== this.props.text;
-  }
+  // shouldComponentUpdate (nextProps, nextState) {
+  //   return nextProps.text !== this.props.text;
+  // }
 
   render() {
     return (

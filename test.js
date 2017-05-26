@@ -51,7 +51,7 @@ console.log('f1------objBB:', obj.objA.objBB === obj_f1.objA.objBB);
 
 const update = require('react/lib/update')
 const f2 = (obj) => {
-  const array = obj.objA.objAA.array;
+  const array = obj.objA.objAA.array.concat();
   array.push(6, 7, 8);
   return update(obj, {
     objA: {
