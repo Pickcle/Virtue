@@ -25,13 +25,20 @@ const shadowClone = (obj) => {
 
 // 使用Object.assign，必须每层都做克隆，保证不被shouldComponentUpdate拦截
 const f1 = (obj) => {
-  // 手动实现update
-  const newArray = obj.objA.objAA.array;
+  const newObj = shadowClone(obj);
+  const array = newObj.objA.objAA.array;
+  const newArray = array.concat();
   newArray.push(3, 4, 5);
-  const newObjAA = Object.assign({}, obj.objA.objAA, {array: newArray})
-  const newObjA = Object.assign({}, obj.objA, {objAA: newObjAA})
-  const newObj = Object.assign({}, obj, {objA: newObjA})
+  newObj.objA.objAA.array = newArray;
   return newObj;
+
+  // 手动实现update
+  // const newArray = obj.objA.objAA.array;
+  // newArray.push(3, 4, 5);
+  // const newObjAA = Object.assign({}, obj.objA.objAA, {array: newArray})
+  // const newObjA = Object.assign({}, obj.objA, {objAA: newObjAA})
+  // const newObj = Object.assign({}, obj, {objA: newObjA})
+  // return newObj;
 }
 
 const obj_f1 = f1(obj);
@@ -63,3 +70,8 @@ console.log('f2------objA:', obj.objA === obj_f2.objA);
 console.log('f2------objAA:', obj.objA.objAA === obj_f2.objA.objAA);
 console.log('f2------array:', obj.objA.objAA.array === obj_f2.objA.objAA.array);
 console.log('f2------objBB:', obj.objA.objBB === obj_f2.objA.objBB);
+
+
+//扁平化
+// objAA = obj.objA.objAA
+// objBB = obj.objA.objBB
