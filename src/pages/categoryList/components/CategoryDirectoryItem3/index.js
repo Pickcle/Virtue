@@ -40,5 +40,8 @@ CategoryDirectoryItem3.propTypes = {
   //渠道类型
   bizType: PropTypes.string,
   //三级类目数据
-  dataLevel3: PropTypes.object
+  dataLevel3: PropTypes.shape({
+    img: PropTypes.string,
+    name: PropTypes.string
+  })
 }
